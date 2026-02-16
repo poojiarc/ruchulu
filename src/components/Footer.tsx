@@ -6,13 +6,14 @@ import {
   MapPin,
   Home,
   Package,
-  UtensilsCrossed,
+  ClipboardList,
   Info,
   Candy,
   Cookie,
   Archive,
   Heart,
   Leaf,
+  Facebook, 
 } from "lucide-react";
 
 import logo from "@/assets/logo.jpeg";
@@ -51,8 +52,8 @@ const Footer = () => (
           </li>
 
           <li>
-            <Link to="/services" className="flex items-center gap-2 hover:opacity-100">
-              <UtensilsCrossed className="h-4 w-4" /> Services
+            <Link to="/how-to-order" className="flex items-center gap-2 hover:opacity-100">
+              <ClipboardList className="h-4 w-4" /> How to Order
             </Link>
           </li>
 
@@ -154,6 +155,15 @@ const Footer = () => (
   >
     <MessageCircle size={20} />
   </a>
+  {/* Facebook */}
+<a
+  href="https://facebook.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition"
+>
+  <Facebook size={20} />
+</a>
         </div>
       </div>
     </div>

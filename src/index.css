@@ -6,58 +6,66 @@
 
 @layer base {
   :root {
-    --background: 30 25% 97%;
-    --foreground: 20 20% 15%;
+    /* ========== MAIN COLORS ========== */
 
-    --card: 30 20% 95%;
-    --card-foreground: 20 20% 15%;
+    /* Warm premium background */
+    --background: 42 55% 96%;
+    --foreground: 20 15% 12%;
 
-    --popover: 30 25% 97%;
-    --popover-foreground: 20 20% 15%;
+    /* Cards */
+    --card: 40 50% 98%;
+    --card-foreground: 20 15% 12%;
 
-    --primary: 0 60% 30%;
-    --primary-foreground: 40 30% 95%;
+    --popover: 42 55% 96%;
+    --popover-foreground: 20 15% 12%;
 
-    --secondary: 35 50% 88%;
-    --secondary-foreground: 20 20% 15%;
+    /* Brand maroon */
+    --primary: 355 65% 32%;
+    --primary-foreground: 40 80% 96%;
 
-    --muted: 30 15% 90%;
-    --muted-foreground: 20 10% 45%;
+    /* Premium gold */
+    --accent: 45 85% 55%;
+    --accent-foreground: 30 30% 12%;
 
-    --accent: 38 70% 50%;
-    --accent-foreground: 20 20% 10%;
+    /* Soft secondary */
+    --secondary: 42 45% 92%;
+    --secondary-foreground: 20 15% 15%;
 
-    --destructive: 0 84.2% 60.2%;
+    /* Muted */
+    --muted: 40 35% 92%;
+    --muted-foreground: 20 10% 40%;
+
+    /* Status */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 20% 85%;
-    --input: 30 20% 85%;
-    --ring: 0 60% 30%;
+    /* Borders */
+    --border: 40 25% 85%;
+    --input: 40 25% 85%;
+    --ring: 45 85% 55%;
 
-    --radius: 0.5rem;
+    --radius: 0.6rem;
 
-    --sidebar-background: 30 25% 95%;
-    --sidebar-foreground: 20 20% 15%;
-    --sidebar-primary: 0 60% 30%;
-    --sidebar-primary-foreground: 40 30% 95%;
-    --sidebar-accent: 35 50% 88%;
-    --sidebar-accent-foreground: 20 20% 15%;
-    --sidebar-border: 30 20% 85%;
-    --sidebar-ring: 0 60% 30%;
+    /* Sidebar */
+    --sidebar-background: 40 50% 94%;
+    --sidebar-foreground: 20 15% 12%;
+    --sidebar-primary: 355 65% 32%;
+    --sidebar-primary-foreground: 40 80% 96%;
+    --sidebar-accent: 45 85% 55%;
+    --sidebar-accent-foreground: 20 15% 12%;
+    --sidebar-border: 40 25% 85%;
+    --sidebar-ring: 45 85% 55%;
 
     /* Custom tokens */
-    --gold: 38 70% 50%;
-    --gold-foreground: 20 20% 10%;
-    --maroon: 0 60% 30%;
-    --maroon-light: 0 45% 45%;
-    --brown: 20 40% 30%;
-    --brown-light: 25 30% 50%;
-    --cream: 40 40% 95%;
-    --warm-white: 30 25% 97%;
-    --whatsapp: 142 70% 35%;
+    --gold: 45 85% 55%;
+    --maroon: 355 65% 32%;
+    --cream: 42 55% 96%;
+    --warm-white: 42 55% 97%;
+    --whatsapp: 142 70% 38%;
     --whatsapp-foreground: 0 0% 100%;
   }
 
+  /* Dark Mode */
   .dark {
     --background: 20 20% 10%;
     --foreground: 30 20% 90%;
@@ -65,22 +73,21 @@
     --card-foreground: 30 20% 90%;
     --popover: 20 20% 10%;
     --popover-foreground: 30 20% 90%;
-    --primary: 38 70% 50%;
+    --primary: 45 85% 55%;
     --primary-foreground: 20 20% 10%;
     --secondary: 20 30% 20%;
     --secondary-foreground: 30 20% 90%;
     --muted: 20 20% 18%;
     --muted-foreground: 30 15% 60%;
-    --accent: 0 50% 40%;
+    --accent: 355 60% 40%;
     --accent-foreground: 30 20% 90%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
     --border: 20 20% 20%;
     --input: 20 20% 20%;
-    --ring: 38 70% 50%;
+    --ring: 45 85% 55%;
   }
 }
 
+/* ========== BASE STYLES ========== */
 @layer base {
   * {
     @apply border-border;
@@ -91,12 +98,55 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-heading;
+    @apply font-heading text-foreground;
   }
 }
 
+/* ========== PREMIUM UTILITIES ========== */
 @layer utilities {
+
+  /* Premium cards globally */
+  .premium-card {
+    @apply bg-card border border-border rounded-xl shadow-sm transition-all;
+  }
+
+  .premium-card:hover {
+    @apply shadow-lg -translate-y-1;
+  }
+
+  /* Premium buttons */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold shadow-md transition hover:opacity-90;
+  }
+
+  .btn-accent {
+    @apply bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold shadow-md transition hover:brightness-95;
+  }
+
+  /* Text gradient highlight */
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  /* Gold premium gradient */
+  .gold-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(45 90% 70%) 0%,
+      hsl(45 85% 55%) 25%,
+      hsl(48 95% 75%) 50%,
+      hsl(45 85% 55%) 75%,
+      hsl(45 90% 70%) 100%
+    );
+  }
+
+  /* Premium maroon gradient */
+  .maroon-gradient {
+    background: linear-gradient(
+      135deg,
+      hsl(355 70% 38%) 0%,
+      hsl(355 65% 32%) 50%,
+      hsl(355 70% 38%) 100%
+    );
   }
 }

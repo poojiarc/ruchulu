@@ -179,7 +179,7 @@ import {
   X,
   Home,
   Package,
-  UtensilsCrossed,
+  ClipboardList,
   Info,
   Phone,
 } from "lucide-react";
@@ -189,7 +189,7 @@ import logo from "@/assets/logo.jpeg";
 const navLinks = [
   { to: "/", label: "Home", icon: Home },
   { to: "/products", label: "Products", icon: Package },
-  { to: "/services", label: "Services", icon: UtensilsCrossed },
+  { to: "/how-to-order", label: "How to Order", icon: ClipboardList},
   { to: "/about", label: "About Us", icon: Info },
   { to: "/contact", label: "Contact", icon: Phone },
 ];
