@@ -2,151 +2,227 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================= GOOGLE FONTS ================= */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
 
+
+/* =================================================
+   ROOT THEME (TRADITIONAL PREMIUM PALETTE)
+================================================= */
 @layer base {
   :root {
-    /* ========== MAIN COLORS ========== */
 
-    /* Warm premium background */
-    --background: 42 55% 96%;
-    --foreground: 20 15% 12%;
+    /* ---------- BACKGROUND SYSTEM ---------- */
+    /* parchment style */
+    --background: 38 60% 94%;
+    --foreground: 24 30% 14%;
 
-    /* Cards */
-    --card: 40 50% 98%;
-    --card-foreground: 20 15% 12%;
+    /* ---------- CARD COLORS ---------- */
+    --card: 40 70% 96%;
+    --card-foreground: 24 30% 14%;
 
-    --popover: 42 55% 96%;
-    --popover-foreground: 20 15% 12%;
+    --popover: 38 60% 94%;
+    --popover-foreground: 24 30% 14%;
 
-    /* Brand maroon */
-    --primary: 355 65% 32%;
-    --primary-foreground: 40 80% 96%;
+    /* ---------- BRAND COLORS ---------- */
+    /* deep traditional brown (main brand) */
+    --primary: 24 45% 28%;
+    --primary-foreground: 40 100% 96%;
 
-    /* Premium gold */
-    --accent: 45 85% 55%;
-    --accent-foreground: 30 30% 12%;
+    /* turmeric gold accent */
+    --accent: 42 75% 52%;
+    --accent-foreground: 25 35% 12%;
 
-    /* Soft secondary */
-    --secondary: 42 45% 92%;
-    --secondary-foreground: 20 15% 15%;
+    /* soft cream sections */
+    --secondary: 40 45% 90%;
+    --secondary-foreground: 24 30% 16%;
 
-    /* Muted */
-    --muted: 40 35% 92%;
-    --muted-foreground: 20 10% 40%;
+    /* muted tones */
+    --muted: 38 45% 88%;
+    --muted-foreground: 25 18% 38%;
 
-    /* Status */
+    /* status */
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
-    /* Borders */
-    --border: 40 25% 85%;
-    --input: 40 25% 85%;
-    --ring: 45 85% 55%;
+    /* borders */
+    --border: 35 40% 75%;
+    --input: 35 40% 75%;
+    --ring: 42 75% 52%;
 
-    --radius: 0.6rem;
+    --radius: 0.7rem;
 
-    /* Sidebar */
-    --sidebar-background: 40 50% 94%;
-    --sidebar-foreground: 20 15% 12%;
-    --sidebar-primary: 355 65% 32%;
-    --sidebar-primary-foreground: 40 80% 96%;
-    --sidebar-accent: 45 85% 55%;
-    --sidebar-accent-foreground: 20 15% 12%;
-    --sidebar-border: 40 25% 85%;
-    --sidebar-ring: 45 85% 55%;
+    /* ---------- SIDEBAR ---------- */
+    --sidebar-background: 40 55% 92%;
+    --sidebar-foreground: 24 30% 14%;
+    --sidebar-primary: 24 45% 28%;
+    --sidebar-primary-foreground: 40 100% 96%;
+    --sidebar-accent: 42 75% 52%;
+    --sidebar-accent-foreground: 24 30% 14%;
+    --sidebar-border: 35 40% 75%;
+    --sidebar-ring: 42 75% 52%;
 
-    /* Custom tokens */
-    --gold: 45 85% 55%;
-    --maroon: 355 65% 32%;
-    --cream: 42 55% 96%;
-    --warm-white: 42 55% 97%;
+    /* ---------- CUSTOM TOKENS ---------- */
+    --gold: 42 75% 52%;
+    --brown: 24 45% 28%;
+    --cream: 38 60% 94%;
+    --warm-white: 40 75% 97%;
+    --coffee: 22 35% 18%;
+
     --whatsapp: 142 70% 38%;
     --whatsapp-foreground: 0 0% 100%;
   }
 
-  /* Dark Mode */
+
+  /* =================================================
+     DARK MODE (OPTIONAL)
+  ================================================= */
   .dark {
-    --background: 20 20% 10%;
-    --foreground: 30 20% 90%;
-    --card: 20 20% 13%;
-    --card-foreground: 30 20% 90%;
-    --popover: 20 20% 10%;
-    --popover-foreground: 30 20% 90%;
-    --primary: 45 85% 55%;
-    --primary-foreground: 20 20% 10%;
-    --secondary: 20 30% 20%;
-    --secondary-foreground: 30 20% 90%;
-    --muted: 20 20% 18%;
-    --muted-foreground: 30 15% 60%;
-    --accent: 355 60% 40%;
-    --accent-foreground: 30 20% 90%;
-    --border: 20 20% 20%;
-    --input: 20 20% 20%;
-    --ring: 45 85% 55%;
+    --background: 22 20% 10%;
+    --foreground: 40 20% 92%;
+
+    --card: 22 20% 14%;
+    --card-foreground: 40 20% 92%;
+
+    --popover: 22 20% 10%;
+    --popover-foreground: 40 20% 92%;
+
+    --primary: 42 75% 52%;
+    --primary-foreground: 22 20% 10%;
+
+    --secondary: 22 20% 18%;
+    --secondary-foreground: 40 20% 92%;
+
+    --muted: 22 20% 18%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 24 45% 32%;
+    --accent-foreground: 40 20% 92%;
+
+    --border: 22 20% 22%;
+    --input: 22 20% 22%;
+    --ring: 42 75% 52%;
   }
 }
 
-/* ========== BASE STYLES ========== */
+
+/* =================================================
+   BASE GLOBAL STYLES
+================================================= */
 @layer base {
+
   * {
     @apply border-border;
   }
 
   body {
     @apply bg-background text-foreground font-body;
+
+    /* parchment background feel */
+    background-color: hsl(var(--background));
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading text-foreground;
+    letter-spacing: 0.4px;
+    line-height: 1.25;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  img {
+    @apply select-none;
   }
 }
 
-/* ========== PREMIUM UTILITIES ========== */
+
+/* =================================================
+   PREMIUM COMPONENT UTILITIES
+================================================= */
 @layer utilities {
 
-  /* Premium cards globally */
+  /* ---------- PREMIUM CARD ---------- */
   .premium-card {
-    @apply bg-card border border-border rounded-xl shadow-sm transition-all;
+    @apply bg-card border border-border rounded-xl shadow-sm transition-all duration-300;
   }
 
   .premium-card:hover {
     @apply shadow-lg -translate-y-1;
   }
 
-  /* Premium buttons */
+
+  /* ---------- BUTTONS ---------- */
   .btn-primary {
-    @apply bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold shadow-md transition hover:opacity-90;
+    @apply bg-primary text-primary-foreground
+           px-6 py-3 rounded-lg font-semibold
+           shadow-md transition-all duration-300
+           hover:brightness-95;
   }
 
   .btn-accent {
-    @apply bg-accent text-accent-foreground px-6 py-3 rounded-lg font-semibold shadow-md transition hover:brightness-95;
+    @apply bg-accent text-accent-foreground
+           px-6 py-3 rounded-lg font-semibold
+           shadow-md transition-all duration-300
+           hover:brightness-95;
   }
 
-  /* Text gradient highlight */
+
+  /* ---------- TEXT GRADIENT ---------- */
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      90deg,
+      hsl(var(--primary)),
+      hsl(var(--accent))
+    );
   }
 
-  /* Gold premium gradient */
+
+  /* ---------- GOLD TRADITIONAL GRADIENT ---------- */
   .gold-gradient {
     background: linear-gradient(
       135deg,
       hsl(45 90% 70%) 0%,
-      hsl(45 85% 55%) 25%,
-      hsl(48 95% 75%) 50%,
-      hsl(45 85% 55%) 75%,
+      hsl(42 75% 52%) 35%,
+      hsl(48 90% 75%) 50%,
+      hsl(42 75% 52%) 65%,
       hsl(45 90% 70%) 100%
     );
   }
 
-  /* Premium maroon gradient */
+
+  /* ---------- EARTHY BROWN GRADIENT ---------- */
   .maroon-gradient {
     background: linear-gradient(
       135deg,
-      hsl(355 70% 38%) 0%,
-      hsl(355 65% 32%) 50%,
-      hsl(355 70% 38%) 100%
+      hsl(24 50% 35%) 0%,
+      hsl(24 45% 28%) 50%,
+      hsl(24 50% 35%) 100%
     );
+  }
+
+
+  /* ---------- SECTION WRAPPER ---------- */
+  .section-wrapper {
+    @apply py-16 bg-card border-y border-border;
+  }
+
+
+  /* ---------- HERO OVERLAY (TEXT VISIBILITY FIX) ---------- */
+  .hero-overlay {
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,0.55),
+      rgba(0,0,0,0.25),
+      rgba(0,0,0,0.15)
+    );
+  }
+
+
+  /* ---------- PREMIUM DIVIDER ---------- */
+  .divider {
+    @apply h-px bg-border opacity-50 my-12;
   }
 }
