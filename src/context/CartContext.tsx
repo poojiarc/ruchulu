@@ -13,7 +13,7 @@ interface CartContextType {
   items: CartItem[];
   addToCart: (product: Product, quantityOption: QuantityOption) => void;
   removeFromCart: (productId: number) => void;
-  updateQuantity: (productId: number, quantity: number) => void;
+  updateQuantity: (productId: number, quantity: number, quantityOption?: QuantityOption) => void;
   clearCart: () => void;
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
@@ -45,21 +45,24 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       return [...prev, { product, quantity: 1, quantityOption }];
     });
-    setIsCartOpen(true);
   }, []);
 
   const removeFromCart = useCallback((productId: number) => {
     setItems((prev) => prev.filter((item) => item.product.id !== productId));
   }, []);
 
-  const updateQuantity = useCallback((productId: number, quantity: number) => {
+  const updateQuantity = useCallback((productId: number, quantity: number, quantityOption?: QuantityOption) => {
     if (quantity <= 0) {
-      setItems((prev) => prev.filter((item) => item.product.id !== productId));
+      setItems((prev) => prev.filter((item) => 
+        !(item.product.id === productId && (!quantityOption || item.quantityOption === quantityOption))
+      ));
       return;
     }
     setItems((prev) =>
       prev.map((item) =>
-        item.product.id === productId ? { ...item, quantity } : item
+        item.product.id === productId && (!quantityOption || item.quantityOption === quantityOption)
+          ? { ...item, quantity }
+          : item
       )
     );
   }, []);
