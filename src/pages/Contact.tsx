@@ -122,7 +122,8 @@
 // export default Contact;
 
 import { useState } from "react";
-import { Phone, Mail, MapPin, MessageCircle, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin, Instagram } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Contact = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -215,8 +216,8 @@ const Contact = () => {
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full bg-whatsapp text-whatsapp-foreground py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity"
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  WhatsApp
+                  <FaWhatsapp className="h-5 w-5" />
+WhatsApp
                 </a>
 
                 {/* Instagram */}
