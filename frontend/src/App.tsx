@@ -1,0 +1,49 @@
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartProvider } from "@/context/CartContext";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+import CartDrawer from "@/components/CartDrawer";
+import Index from "./pages/Index";
+import Products from "./pages/Products";
+import HowToOrder from "./pages/HowToOrder";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Checkout from "./pages/Checkout";
+import ScrollToTop from "@/components/ScrollToTop";
+import FloatingCartButton from "@/components/FloatingCartButton";
+import NotFound from "./pages/NotFound";
+
+const queryClient = new QueryClient();
+
+const App = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <CartProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Navbar />
+          <CartDrawer />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/products" element={<Products />} />
+            <Route path="/how-to-order" element={<HowToOrder />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/checkout" element={<Checkout />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+          <Footer />
+          <FloatingCartButton />
+        </BrowserRouter>
+      </CartProvider>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+export default App;
