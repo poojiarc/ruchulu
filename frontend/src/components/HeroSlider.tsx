@@ -77,7 +77,6 @@
 
 // export default HeroSlider;
 
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
@@ -87,7 +86,7 @@ const HeroSlider = () => {
   const [current, setCurrent] = useState(0);
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/api/banners/")
+    fetch("https://api.chandalururuchulu.com/api/banners/")
       .then((res) => res.json())
       .then((data) => setSlides(data))
       .catch((err) => console.error("Banner API error:", err));
